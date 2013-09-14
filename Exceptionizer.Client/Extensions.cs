@@ -15,5 +15,11 @@ namespace Exceptionizer.Client
 				return default(TResult);
 			}
 		}
+
+		public static void SendToExceptionizer(this Exception exception)
+		{
+			var client = new ExceptionizerClient();
+			client.Send(exception);
+		}
 	}
 }

@@ -13,5 +13,15 @@ namespace Exceptionizer.Client.Events
 			this.request = request;
 			this.response = new ExceptionizerResponse(response, content);
 		}
+
+		public WebRequest Request
+		{
+			get { return request; }
+		}
+
+		public ExceptionizerResponse Response
+		{
+			get { return response; }
+		}
 	}
 }
