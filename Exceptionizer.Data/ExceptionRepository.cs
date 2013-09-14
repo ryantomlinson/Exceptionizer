@@ -3,24 +3,40 @@ using System.Configuration;
 using Exceptionizer.Data.Contracts;
 using Exceptionizer.Data.Entities;
 using MongoDB.Driver;
+using Nest;
 
 namespace Exceptionizer.Data
 {
 	public class ExceptionRepository : IExceptionRepository
 	{
-		private readonly MongoClient client;
-		private readonly MongoDatabase exceptionDatabase;
-		private readonly MongoCollection<ExceptionizerMessageDto> exceptionCollection;
+		private MongoClient mongoClient;
+		private MongoDatabase mongoExceptionDatabase;
+		private MongoCollection<ExceptionizerMessageDto> mongoExceptionCollection;
+
+		private ElasticClient elasticSearchClient;
 		
 		public ExceptionRepository()
 		{
-			client = new MongoClient(GetConnectionString());
-			var server = client.GetServer();
-			exceptionDatabase = server.GetDatabase("exception");
-			exceptionCollection = exceptionDatabase.GetCollection<ExceptionizerMessageDto>(MongoCollectionKeys.ExceptionsCollection);
+			ConfigureMongoDB();
+			ConfigureElasticSearch();
 		}
 
-		private string GetConnectionString()
+		private void ConfigureElasticSearch()
+		{
+			var elasticsSearchConnectionString = ConfigurationManager.AppSettings["ElasticSeachConnectionString"];
+			var settings = new ConnectionSettings(new Uri(elasticsSearchConnectionString));
+			elasticSearchClient = new ElasticClient(settings);
+		}
+
+		private void ConfigureMongoDB()
+		{
+			mongoClient = new MongoClient(GetMongoDbConnectionString());
+			var server = mongoClient.GetServer();
+			mongoExceptionDatabase = server.GetDatabase("exception");
+			mongoExceptionCollection = mongoExceptionDatabase.GetCollection<ExceptionizerMessageDto>(MongoCollectionKeys.ExceptionsCollection);
+		}
+
+		private string GetMongoDbConnectionString()
 		{
 			return ConfigurationManager.AppSettings["MongoDbConnectionString"];
 		}
@@ -32,7 +48,17 @@ namespace Exceptionizer.Data
 				messageDto.Id = Guid.NewGuid();
 				messageDto.CreationDate = DateTime.UtcNow;
 
-				exceptionCollection.Insert(messageDto);
+				mongoExceptionCollection.Insert(messageDto);
+
+				ConnectionStatus connectionStatus;
+				if (elasticSearchClient.TryConnect(out connectionStatus))
+				{
+					elasticSearchClient.Index(messageDto);
+				}
+				else
+				{
+					//throw exception here
+				}
 			}
 			catch (Exception)
 			{
