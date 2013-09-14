@@ -1,12 +1,13 @@
 ﻿using System;
 using AutoMapper;
+using Exceptionizer.Business.Contracts;
 using Exceptionizer.Business.Domain;
 using Exceptionizer.Data.Contracts;
 using Exceptionizer.Data.Entities;
 
 namespace Exceptionizer.Business.Services
 {
-	public class ExceptionService
+	public class ExceptionService : IExceptionService
 	{
 		private readonly IExceptionRepository exceptionRepository;
 

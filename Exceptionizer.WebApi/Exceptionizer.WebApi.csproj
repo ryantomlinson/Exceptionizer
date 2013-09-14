@@ -302,6 +302,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Exceptionizer.Business.Contracts\Exceptionizer.Business.Contracts.csproj">
+      <Project>{86E09B45-97BE-4ED6-A697-D415E9A7C8F9}</Project>
+      <Name>Exceptionizer.Business.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Exceptionizer.Business.Domain\Exceptionizer.Business.Domain.csproj">
       <Project>{0C4322EB-83F4-4B70-A47D-090D9977F23D}</Project>
       <Name>Exceptionizer.Business.Domain</Name>

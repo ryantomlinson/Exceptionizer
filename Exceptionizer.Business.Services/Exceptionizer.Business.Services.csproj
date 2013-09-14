@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrap\ServiceBootstrapper.cs" />
     <Compile Include="ExceptionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,6 +58,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Exceptionizer.Business.Contracts\Exceptionizer.Business.Contracts.csproj">
+      <Project>{86E09B45-97BE-4ED6-A697-D415E9A7C8F9}</Project>
+      <Name>Exceptionizer.Business.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Exceptionizer.Business.Domain\Exceptionizer.Business.Domain.csproj">
       <Project>{0C4322EB-83F4-4B70-A47D-090D9977F23D}</Project>
       <Name>Exceptionizer.Business.Domain</Name>
@@ -68,6 +73,10 @@
     <ProjectReference Include="..\Exceptionizer.Data.Entities\Exceptionizer.Data.Entities.csproj">
       <Project>{0B45753B-2A0A-4690-8468-E79AA9CE1C35}</Project>
       <Name>Exceptionizer.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exceptionizer.Data\Exceptionizer.Data.csproj">
+      <Project>{4BFDE8FC-17CF-434B-8CA6-118C764D9ECC}</Project>
+      <Name>Exceptionizer.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

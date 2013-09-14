@@ -2,8 +2,8 @@
 
 namespace Exceptionizer.Data.Contracts
 {
-	public interface IExceptionRepository : IRepositoryBase<ExceptionizerMessageDto>
+	public interface IRepositoryBase<T> where T : BaseEntityDto
 	{
-		
+		void Add(T messageDto);
 	}
 }

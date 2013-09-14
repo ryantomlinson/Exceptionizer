@@ -20,15 +20,17 @@ using StructureMap;
 namespace Exceptionizer.WebApi.DependencyResolution {
     public static class IoC {
         public static IContainer Initialize() {
-            ObjectFactory.Initialize(x =>
-                        {
-                            x.Scan(scan =>
-                                    {
-                                        scan.TheCallingAssembly();
-                                        scan.WithDefaultConventions();
-                                    });
-            //                x.For<IExample>().Use<Example>();
-                        });
+            ObjectFactory.Initialize(x => x.Scan(scan =>
+	            {
+		            scan.LookForRegistries();
+		            scan.Assembly("Exceptionizer.Business.Contracts");
+					scan.Assembly("Exceptionizer.Business.Services");
+					//scan.Assembly("Exceptionizer.Data.Contracts");
+					//scan.Assembly("Exceptionizer.Data");
+		            scan.WithDefaultConventions();
+					
+					
+	            }));
             return ObjectFactory.Container;
         }
     }

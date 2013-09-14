@@ -17,6 +17,7 @@
 
 using System.Web.Http;
 using System.Web.Mvc;
+using Exceptionizer.Business.Services.Bootstrap;
 using StructureMap;
 using Exceptionizer.WebApi.DependencyResolution;
 
@@ -26,6 +27,9 @@ namespace Exceptionizer.WebApi.App_Start {
     public static class StructuremapMvc {
         public static void Start() {
 			IContainer container = IoC.Initialize();
+
+			ServiceBootstrapper.Register(container);
+
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new StructureMapDependencyResolver(container);
         }

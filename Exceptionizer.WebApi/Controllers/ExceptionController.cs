@@ -4,13 +4,21 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Exceptionizer.Business.Contracts;
 using Exceptionizer.Business.Domain;
 
 namespace Exceptionizer.WebApi.Controllers
 {
     public class ExceptionController : ApiController
     {
-        // GET api/exception
+	    private readonly IExceptionService exceptionService;
+
+	    public ExceptionController(IExceptionService exceptionService)
+	    {
+		    this.exceptionService = exceptionService;
+	    }
+
+	    // GET api/exception
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
