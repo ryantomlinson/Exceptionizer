@@ -42,6 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -309,6 +312,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Exceptionizer.Business.Services\Exceptionizer.Business.Services.csproj">
+      <Project>{630C6BDD-E096-4CE0-A84B-6BE243921B9D}</Project>
+      <Name>Exceptionizer.Business.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exceptionizer.Common\Exceptionizer.Common.csproj">
+      <Project>{5508CC9E-0347-4626-B3E7-18837C929E0F}</Project>
+      <Name>Exceptionizer.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

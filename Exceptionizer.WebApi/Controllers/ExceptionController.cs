@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Exceptionizer.Business.Domain;
 
 namespace Exceptionizer.WebApi.Controllers
 {
@@ -27,13 +28,9 @@ namespace Exceptionizer.WebApi.Controllers
         }
 
         // PUT api/exception/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(ExceptionizerMessage message)
         {
-        }
 
-        // DELETE api/exception/5
-        public void Delete(int id)
-        {
         }
     }
 }

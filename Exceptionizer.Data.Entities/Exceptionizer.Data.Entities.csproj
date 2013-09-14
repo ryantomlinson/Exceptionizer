@@ -39,7 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseEntityDto.cs" />
+    <Compile Include="ClientSourceDto.cs" />
+    <Compile Include="EnvironmentDto.cs" />
+    <Compile Include="ExceptionizerExceptionDto.cs" />
+    <Compile Include="ExceptionizerMessageDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInformationDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
