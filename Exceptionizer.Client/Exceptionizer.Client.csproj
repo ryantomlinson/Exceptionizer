@@ -49,7 +49,11 @@
     <Compile Include="ExceptionizerMessageBuilder.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serialization\ExceptionizerClientMessage.cs" />
+    <Compile Include="Serialization\ClientSource.cs" />
+    <Compile Include="Serialization\Environment.cs" />
+    <Compile Include="Serialization\ExceptionizerException.cs" />
+    <Compile Include="Serialization\ExceptionizerMessage.cs" />
+    <Compile Include="Serialization\UserInformation.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

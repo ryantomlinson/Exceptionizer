@@ -43,10 +43,10 @@ namespace Exceptionizer.Client
 		{
 			JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
 
-			Message = javaScriptSerializer.Deserialize<ExceptionizerClientMessage>(json);
+			Message = javaScriptSerializer.Deserialize<ExceptionizerMessage>(json);
 		}
 
-		public ExceptionizerClientMessage Message { get; private set; }
+		public ExceptionizerMessage Message { get; private set; }
 
 		public string Content
 		{

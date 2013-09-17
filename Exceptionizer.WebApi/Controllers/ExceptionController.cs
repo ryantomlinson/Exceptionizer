@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Exceptionizer.Business.Contracts;
 using Exceptionizer.Business.Domain;
+using Environment = Exceptionizer.Business.Domain.Environment;
 
 namespace Exceptionizer.WebApi.Controllers
 {
@@ -25,9 +26,40 @@ namespace Exceptionizer.WebApi.Controllers
         }
 
         // GET api/exception/5
-        public string Get(string productid)
+		public ExceptionizerMessage Get(string productid)
         {
-            return "value";
+	        var exception = new ExceptionizerMessage();
+
+	        exception.ClientSource = new ClientSource
+		        {
+			        Name = "local",
+			        Url = "http://ryantomlinson.com",
+			        Version = "0.1"
+		        };
+	        exception.Environment = new Environment
+		        {
+			        OperatingSystem = "windows",
+			        Url = "http://exceptionizer.com",
+			        ProductVersion = "1.0.0",
+			        SourceEnvironment = "production"
+		        };
+	        exception.UserInformation = new UserInformation
+		        {
+			        UserEmail = "tomlinsonryan@gmail.com",
+			        UserId = "1235",
+			        UserName = "ryan.tomlinson"
+		        };
+	        exception.Exceptions = new List<ExceptionizerException>()
+		        {
+			        new ExceptionizerException()
+				        {
+					        Message = "something gone wrong like",
+					        StackTrace = "this be the stacktracez",
+					        Type = "this be the type"
+				        }
+		        };
+			exceptionService.Add(exception);
+            return exception;
         }
 
         // POST api/exception

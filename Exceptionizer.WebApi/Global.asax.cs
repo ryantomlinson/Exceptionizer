@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Exceptionizer.WebApi.App_Start;
 using Exceptionizer.WebApi.DependencyResolution;
 using StructureMap;
 
@@ -20,6 +21,8 @@ namespace Exceptionizer.WebApi
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+			AutomapperConfig.Configure();
 		}
 	}
 }

@@ -11,6 +11,7 @@ namespace Exceptionizer.Business.Domain.Mapping
 			 Mapper.CreateMap<UserInformation, UserInformationDto>();
 			 Mapper.CreateMap<ClientSource, ClientSourceDto>();
 			 Mapper.CreateMap<ExceptionizerException, ExceptionizerExceptionDto>();
+			 Mapper.CreateMap<ExceptionizerMessage, ExceptionizerMessageDto>();
 		 }
 	}
 }

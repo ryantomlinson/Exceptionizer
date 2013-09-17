@@ -29,7 +29,7 @@ namespace Exceptionizer.Client
 
 		public event RequestCompleteEventHandler RequestComplete;
 
-		public void Send(ExceptionizerClientMessage message)
+		public void Send(ExceptionizerMessage message)
 		{
 			try
 			{
@@ -99,7 +99,7 @@ namespace Exceptionizer.Client
 			}
 		}
 
-		private void PopulateRequestBody(HttpWebRequest requst, ExceptionizerClientMessage message)
+		private void PopulateRequestBody(HttpWebRequest requst, ExceptionizerMessage message)
 		{
 			var jsonSerializer = new JavaScriptSerializer();
 			string jsonSerializedMessage = jsonSerializer.Serialize(message);

@@ -30,6 +30,7 @@ namespace Exceptionizer.Data.Base
 		{
 			var elasticsSearchConnectionString = ConfigurationManager.AppSettings["ElasticSeachConnectionString"];
 			var settings = new ConnectionSettings(new Uri(elasticsSearchConnectionString));
+			settings.SetDefaultIndex("exceptionizer");
 			elasticSearchClient = new ElasticClient(settings);
 		}
 
