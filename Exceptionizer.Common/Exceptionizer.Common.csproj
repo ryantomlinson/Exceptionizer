@@ -45,11 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\BaseExceptions\BaseExceptionizerException.cs" />
+    <Compile Include="Exceptions\BaseExceptions\ElasticSearchException.cs" />
+    <Compile Include="Exceptions\BaseExceptions\NoSqlException.cs" />
+    <Compile Include="Exceptions\ElasticSearch\UnableToConfigureElasticSearchException.cs" />
+    <Compile Include="Exceptions\ElasticSearch\UnableToPersistToElasticSearchException.cs" />
+    <Compile Include="Exceptions\NoSql\UnableToConfigureMongoDbException.cs" />
+    <Compile Include="Exceptions\NoSql\UnableToPersistToMongoDbException.cs" />
+    <Compile Include="Exceptions\UnableToAddExceptionizerMessageException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Exceptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

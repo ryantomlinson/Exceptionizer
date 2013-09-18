@@ -30,6 +30,8 @@ namespace Exceptionizer.WebApi.Controllers
         {
 	        var exception = new ExceptionizerMessage();
 
+			exception.ApiKey = "a6584184-14a6-4ddf-a652-0c86ac1d16e0";
+
 	        exception.ClientSource = new ClientSource
 		        {
 			        Name = "local",

@@ -65,6 +65,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Exceptionizer.Common\Exceptionizer.Common.csproj">
+      <Project>{5508CC9E-0347-4626-B3E7-18837C929E0F}</Project>
+      <Name>Exceptionizer.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Exceptionizer.Data.Contracts\Exceptionizer.Data.Contracts.csproj">
       <Project>{F2CD5A72-8ED8-4C01-8CA9-915D6A0581B2}</Project>
       <Name>Exceptionizer.Data.Contracts</Name>

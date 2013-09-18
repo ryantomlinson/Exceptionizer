@@ -1,9 +1,13 @@
-﻿using Exceptionizer.Data.Entities;
+﻿using Exceptionizer.Common.Exceptions.ElasticSearch;
+using Exceptionizer.Common.Exceptions.NoSql;
+using Exceptionizer.Data.Entities;
 
 namespace Exceptionizer.Data.Contracts
 {
 	public interface IRepositoryBase<T> where T : BaseEntityDto
 	{
-		void Add(T messageDto);
+		/// <exception cref="UnableToPersistToMongoDbException">Thrown when there are connection issues to MongoDB</exception>
+		/// <exception cref="UnableToPersistToElasticSearchException">Thrown when there are connection issues to ElasticSearch</exception>
+		void Add(T objectDto);
 	}
 }

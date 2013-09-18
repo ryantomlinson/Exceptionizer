@@ -4,6 +4,7 @@ namespace Exceptionizer.Business.Domain
 {
 	public class ExceptionizerMessage
 	{
+		public string ApiKey { get; set; }
 		public ClientSource ClientSource { get; set; }
 		public List<ExceptionizerException> Exceptions { get; set; }
 		public Environment Environment { get; set; }

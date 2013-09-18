@@ -47,6 +47,10 @@
       <Project>{0C4322EB-83F4-4B70-A47D-090D9977F23D}</Project>
       <Name>Exceptionizer.Business.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Exceptionizer.Common\Exceptionizer.Common.csproj">
+      <Project>{5508CC9E-0347-4626-B3E7-18837C929E0F}</Project>
+      <Name>Exceptionizer.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
