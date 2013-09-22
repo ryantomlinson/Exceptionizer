@@ -44,9 +44,16 @@
     <Compile Include="EnvironmentDto.cs" />
     <Compile Include="ExceptionizerExceptionDto.cs" />
     <Compile Include="ExceptionizerMessageDto.cs" />
+    <Compile Include="ExceptionLogDto.cs" />
     <Compile Include="ProjectDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInformationDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Exceptionizer.Common\Exceptionizer.Common.csproj">
+      <Project>{5508CC9E-0347-4626-B3E7-18837C929E0F}</Project>
+      <Name>Exceptionizer.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,5 +4,6 @@
 	{
 		public static string ExceptionsCollection = "exceptions";
 		public static string ProjectsCollection = "projects";
+		public static string ExceptionLogCollection = "exceptionlog";
 	}
 }

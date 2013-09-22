@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\ExceptionType.cs" />
     <Compile Include="Exceptions\BaseExceptions\BaseExceptionizerException.cs" />
     <Compile Include="Exceptions\BaseExceptions\ElasticSearchException.cs" />
     <Compile Include="Exceptions\BaseExceptions\NoSqlException.cs" />

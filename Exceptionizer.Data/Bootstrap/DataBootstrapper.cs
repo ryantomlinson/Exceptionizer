@@ -9,6 +9,7 @@ namespace Exceptionizer.Data.Bootstrap
 		{
 			container.Configure(x => x.For<IExceptionRepository>().Use<ExceptionRepository>());
 			container.Configure(x => x.For<IProjectRepository>().Use<ProjectRepository>());
+			container.Configure(x => x.For<ILogger>().Use<MongoDbLogger>());
 		} 
 	}
 }

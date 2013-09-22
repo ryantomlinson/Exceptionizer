@@ -2,6 +2,7 @@
 using AutoMapper;
 using Exceptionizer.Business.Contracts;
 using Exceptionizer.Business.Domain;
+using Exceptionizer.Common.Enum;
 using Exceptionizer.Common.Exceptions;
 using Exceptionizer.Common.Exceptions.ElasticSearch;
 using Exceptionizer.Common.Exceptions.NoSql;
@@ -15,11 +16,13 @@ namespace Exceptionizer.Business.Services
 	{
 		private readonly IExceptionRepository exceptionRepository;
 		private readonly IAuthorizationService authorizationService;
+		private readonly ILogger logger;
 
-		public ExceptionService(IExceptionRepository exceptionRepository, IAuthorizationService authorizationService)
+		public ExceptionService(IExceptionRepository exceptionRepository, IAuthorizationService authorizationService, ILogger logger)
 		{
-			this.exceptionRepository = exceptionRepository;
-			this.authorizationService = authorizationService;
+			this.exceptionRepository	= exceptionRepository;
+			this.authorizationService	= authorizationService;
+			this.logger					= logger;
 		}
 
 		/// <exception cref="UnAuthorizedProjectException">Thrown when the project is not valid or active</exception>
@@ -33,24 +36,24 @@ namespace Exceptionizer.Business.Services
 				var messageDto = Mapper.Map<ExceptionizerMessageDto>(message);
 				exceptionRepository.Add(messageDto);
 			}
-			catch (UnAuthorizedProjectException)
+			catch (UnAuthorizedProjectException exception)
 			{
-				//TODO: log
+				//Already logged
 				throw;
 			}
 			catch (UnableToPersistToMongoDbException exception)
 			{
-				//TODO: log here
+				logger.Log(ExceptionType.ExceptionizerApi, "ExceptionService: Add", exception);
 				throw new UnableToAddExceptionizerMessageException("Cannot add message to mongodb", exception);
 			}
 			catch (UnableToPersistToElasticSearchException exception)
 			{
-				//TODO: log here
+				logger.Log(ExceptionType.ExceptionizerApi, "ExceptionService: Add", exception);
 				throw new UnableToAddExceptionizerMessageException("Cannot add message to elasticsearch", exception);
 			}
 			catch (Exception exception)
 			{
-				//TODO: log unhandled here
+				logger.Log(ExceptionType.Unhandled, "ExceptionService: Add", exception);
 				throw new UnableToAddExceptionizerMessageException("UNHANDLED EXCEPTION!", exception);
 			}
 		}
