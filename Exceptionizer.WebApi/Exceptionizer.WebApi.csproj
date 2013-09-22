@@ -303,6 +303,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ActionFilters\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

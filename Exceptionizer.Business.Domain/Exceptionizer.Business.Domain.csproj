@@ -47,11 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
     <Compile Include="ClientSource.cs" />
     <Compile Include="Environment.cs" />
     <Compile Include="ExceptionizerException.cs" />
     <Compile Include="ExceptionizerMessage.cs" />
     <Compile Include="Mapping\DomainMapping.cs" />
+    <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInformation.cs" />
   </ItemGroup>

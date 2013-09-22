@@ -8,6 +8,7 @@ namespace Exceptionizer.Data.Bootstrap
 		public static void Register(IContainer container)
 		{
 			container.Configure(x => x.For<IExceptionRepository>().Use<ExceptionRepository>());
+			container.Configure(x => x.For<IProjectRepository>().Use<ProjectRepository>());
 		} 
 	}
 }

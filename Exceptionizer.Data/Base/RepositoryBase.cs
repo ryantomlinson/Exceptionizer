@@ -14,7 +14,7 @@ namespace Exceptionizer.Data.Base
 		protected ElasticClient elasticSearchClient;
 		protected MongoClient mongoClient;
 		protected MongoDatabase mongoExceptionDatabaseKeys;
-		protected MongoCollection<T> mongoExceptionCollection;
+		protected MongoCollection<T> mongoCollection;
 
 		protected RepositoryBase(string mongoCollectionName)
 		{
@@ -60,7 +60,7 @@ namespace Exceptionizer.Data.Base
 				mongoClient = new MongoClient(GetMongoDbConnectionString());
 				var server = mongoClient.GetServer();
 				mongoExceptionDatabaseKeys = server.GetDatabase(mongoDatabaseName);
-				mongoExceptionCollection = mongoExceptionDatabaseKeys.GetCollection<T>(mongoCollectionName);
+				mongoCollection = mongoExceptionDatabaseKeys.GetCollection<T>(mongoCollectionName);
 			}
 			catch (Exception exception)
 			{
@@ -103,7 +103,7 @@ namespace Exceptionizer.Data.Base
 		{
 			try
 			{
-				mongoExceptionCollection.Insert(objectDto);
+				mongoCollection.Insert(objectDto);
 			}
 			catch (Exception exception)
 			{

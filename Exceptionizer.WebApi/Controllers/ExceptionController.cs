@@ -19,13 +19,7 @@ namespace Exceptionizer.WebApi.Controllers
 		    this.exceptionService = exceptionService;
 	    }
 
-	    // GET api/exception
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/exception/5
+        // For testing purposes only
 		public ExceptionizerMessage Get(string productid)
         {
 	        var exception = new ExceptionizerMessage();
@@ -60,19 +54,42 @@ namespace Exceptionizer.WebApi.Controllers
 					        Type = "this be the type"
 				        }
 		        };
-			exceptionService.Add(exception);
+			try
+			{
+				exceptionService.Add(exception);
+			}
+			catch (Exception)
+			{
+				throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
+					{
+						Content = new StringContent("An error occured trying to process your request. Please contact us for details support@exceptionizer.com"),
+						ReasonPhrase = "Critical Exception"
+					});
+			}
+			
             return exception;
         }
 
         // POST api/exception
-        public void Post([FromBody]string value)
+		public void Post(ExceptionizerMessage message)
         {
         }
 
         // PUT api/exception/5
         public void Put(ExceptionizerMessage message)
         {
-
+			try
+			{
+				exceptionService.Add(message);
+			}
+			catch (Exception)
+			{
+				throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
+				{
+					Content = new StringContent("An error occured trying to process your request. Please contact us for details support@exceptionizer.com"),
+					ReasonPhrase = "Critical Exception"
+				});
+			}
         }
     }
 }

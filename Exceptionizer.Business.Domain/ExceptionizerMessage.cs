@@ -2,7 +2,7 @@
 
 namespace Exceptionizer.Business.Domain
 {
-	public class ExceptionizerMessage
+	public class ExceptionizerMessage : BaseEntity
 	{
 		public string ApiKey { get; set; }
 		public ClientSource ClientSource { get; set; }

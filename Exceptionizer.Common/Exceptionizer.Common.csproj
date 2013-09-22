@@ -52,7 +52,12 @@
     <Compile Include="Exceptions\ElasticSearch\UnableToPersistToElasticSearchException.cs" />
     <Compile Include="Exceptions\NoSql\UnableToConfigureMongoDbException.cs" />
     <Compile Include="Exceptions\NoSql\UnableToPersistToMongoDbException.cs" />
+    <Compile Include="Exceptions\Project\UnableToGetProjectByApiKeyFromMongoDb.cs" />
+    <Compile Include="Exceptions\Project\UnAuthorizedProjectException.cs" />
     <Compile Include="Exceptions\UnableToAddExceptionizerMessageException.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

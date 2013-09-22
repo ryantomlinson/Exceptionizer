@@ -62,6 +62,7 @@
     <Compile Include="ExceptionRepository.cs" />
     <Compile Include="MongoCollectionKeys.cs" />
     <Compile Include="MongoDatabaseKeys.cs" />
+    <Compile Include="ProjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
