@@ -13,15 +13,17 @@ namespace Exceptionizer.WebApi.Controllers
     public class ExceptionController : ApiController
     {
 	    private readonly IExceptionService exceptionService;
+	    private readonly IProjectService projectService;
 
-	    public ExceptionController(IExceptionService exceptionService)
+	    public ExceptionController(IExceptionService exceptionService, IProjectService projectService)
 	    {
 		    this.exceptionService = exceptionService;
+		    this.projectService = projectService;
 	    }
 
-        // For testing purposes only
+	    // For testing purposes only
 		public ExceptionizerMessage Get(string productid)
-        {
+		{
 	        var exception = new ExceptionizerMessage();
 
 			exception.ApiKey = "a6584184-14a6-4ddf-a652-0c86ac1d16e0";
