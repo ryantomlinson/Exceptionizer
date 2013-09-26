@@ -11,6 +11,12 @@ namespace Exceptionizer.Web
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
 						"~/Scripts/jquery.js"));
 
+			bundles.Add(new ScriptBundle("~/bundles/flot").Include(
+				"~/Scripts/flot/excanvas.js",
+				"~/Scripts/flot/flot.js",
+				"~/Scripts/flot/flot.resize.js"
+				));
+
 			//bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
 			//			"~/Scripts/jquery-ui-{version}.js"));
 

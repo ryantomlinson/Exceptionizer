@@ -12,7 +12,7 @@
 		<nav class="navbar navbar-default">
 
 			<!-- application logo -->
-			<a class="navbar-brand" href="@Url.Action("Index", "Home")">
+			<a class="navbar-brand" href="@Url.Action("Index", "Dashboard")">
 				<!-- application logo visible on large screens -->
 				<img width="81" height="21" class="logo" alt="Flatty" src="~/Images/logo.svg">
 				<!-- application logo visible on small screens -->
@@ -83,7 +83,7 @@
 
 					<!-- single navigation item -->
 					<li class="active">
-						<a href="@Url.Action("Index", "Home")">
+						<a href="@Url.Action("Index", "Dashboard")">
 							<i class="icon-dashboard"></i>
 							<span>Dashboard</span>
 						</a>
@@ -91,50 +91,10 @@
 
 					<!-- four level dropdown -->
 					<li>
-						<a class="dropdown-collapse" href="#">
-							<i class="icon-folder-open-alt"></i>
-							<span>Four level dropdown</span>
-							<i class="icon-angle-down angle-down"></i>
+						<a href="#">
+							<i class="icon-tasks"></i>
+							<span>Exceptions</span>
 						</a>
-						<ul class="nav nav-stacked">
-							<li>
-								<a class="dropdown-collapse" href="#">
-									<i class="icon-caret-right"></i>
-									<span>Second level</span>
-									<i class="icon-angle-down angle-down"></i>
-								</a>
-							</li>
-							<li>
-								<a class="dropdown-collapse" href="#">
-									<i class="icon-caret-right"></i>
-									<span>Second level</span>
-									<i class="icon-angle-down angle-down"></i>
-								</a>
-								<ul class="nav nav-stacked">
-									<li>
-										<a class="dropdown-collapse" href="#">
-											<i class="icon-caret-right"></i>
-											<span>Third level</span>
-											<i class="icon-angle-down angle-down"></i>
-										</a>
-										<ul class="nav nav-stacked">
-											<li>
-												<a href="#">
-													<i class="icon-caret-right"></i>
-													<span>Fourth level</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="icon-caret-right"></i>
-													<span>Another fourth level</span>
-												</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
 					</li>
 				</ul>
 			</div>
@@ -152,15 +112,14 @@
 
 									<!-- page title -->
 									<h1 class="pull-left">
-										<i class="icon-th"></i>
-										<span>@RenderSection("pagetitle", required: false)</span>
+										@RenderSection("pagetitle", required: false)
 									</h1>
 
 									<!-- breadcrumbs -->
 									<div class="pull-right">
 										<ul class="breadcrumb">
 											<li>
-												<a href="@Url.Action("Index", "Home")">
+												<a href="@Url.Action("Index", "Dashboard")">
 													<i class="icon-bar-chart"></i>
 												</a>
 											</li>

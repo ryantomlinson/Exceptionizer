@@ -127,3 +127,9 @@
     padding: 20px;
     position: relative;
 }
+
+
+/******************Charting*/
+#stats-chart1 {
+	height: 200px;
+}
