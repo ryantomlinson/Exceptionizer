@@ -1,15 +1,193 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Exceptionizer - Catch all the things</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-	    <header>
+<head>
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+	<title>Exceptionizer - Catch all the things</title>
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	@Styles.Render("~/Content/css")
+</head>
+<body>
+
+	<header>
+		<nav class="navbar navbar-default">
+
+			<!-- application logo -->
+			<a class="navbar-brand" href="@Url.Action("Index", "Home")">
+				<!-- application logo visible on large screens -->
+				<img width="81" height="21" class="logo" alt="Flatty" src="~/Images/logo.svg">
+				<!-- application logo visible on small screens -->
+				<img width="21" height="21" class="logo-xs" alt="Flatty" src="~/Images/logo_xs.svg">
+			</a>
+
+			<!-- main nav toggler (show/hide) -->
+			<a class="toggle-nav btn pull-left" href="#">
+				<i class="icon-reorder"></i>
+			</a>
+
+			<!-- dropdowns -->
+			<ul class="nav">
+
+				<!-- light dropdown -->
+				<li class="dropdown light only-icon">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<!-- ... -->
+					</a>
+					<!-- ... -->
+				</li>
+
+				<!-- medium dropdown & widget -->
+				<li class="dropdown medium only-icon widget">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<!-- ... -->
+					</a>
+					<!-- ... -->
+				</li>
+
+				<!-- dark dropdown & user menu -->
+				<li class="dropdown dark user-menu">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<img width="23" height="23" alt="Mila Kunis" src="~/Images/avatar.jpg">
+						<span class="user-name">Mila Kunis</span>
+						<b class="caret"></b>
+					</a>
+					<!-- ... -->
+				</li>
+			</ul>
+
+			<!-- search form - hidden on phone -->
+			<form action="search_results.html" class="navbar-form navbar-right hidden-xs" method="get">
+				<button class="btn btn-link icon-search" name="button" type="submit"></button>
+				<div class="form-group">
+					<input value="" class="form-control" placeholder="Search..." autocomplete="off" id="q_header" name="q" type="text">
+				</div>
+			</form>
+		</nav>
+	</header>
+	<div id="wrapper">
+		<div id="main-nav-bg"></div>
+		<nav id="main-nav">
+			<div class="navigation">
+
+				<!-- search form visible on phone -->
+				<div class="search">
+					<form action="search_results.html" method="get">
+						<div class="search-wrapper">
+							<input value="" class="search-query form-control" placeholder="Search..." autocomplete="off" name="q" type="text">
+							<button class="btn btn-link icon-search" name="button" type="submit"></button>
+						</div>
+					</form>
+				</div>
+
+				<!-- navigation items -->
+				<ul class="nav nav-stacked">
+
+					<!-- single navigation item -->
+					<li class="active">
+						<a href="@Url.Action("Index", "Home")">
+							<i class="icon-dashboard"></i>
+							<span>Dashboard</span>
+						</a>
+					</li>
+
+					<!-- four level dropdown -->
+					<li>
+						<a class="dropdown-collapse" href="#">
+							<i class="icon-folder-open-alt"></i>
+							<span>Four level dropdown</span>
+							<i class="icon-angle-down angle-down"></i>
+						</a>
+						<ul class="nav nav-stacked">
+							<li>
+								<a class="dropdown-collapse" href="#">
+									<i class="icon-caret-right"></i>
+									<span>Second level</span>
+									<i class="icon-angle-down angle-down"></i>
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-collapse" href="#">
+									<i class="icon-caret-right"></i>
+									<span>Second level</span>
+									<i class="icon-angle-down angle-down"></i>
+								</a>
+								<ul class="nav nav-stacked">
+									<li>
+										<a class="dropdown-collapse" href="#">
+											<i class="icon-caret-right"></i>
+											<span>Third level</span>
+											<i class="icon-angle-down angle-down"></i>
+										</a>
+										<ul class="nav nav-stacked">
+											<li>
+												<a href="#">
+													<i class="icon-caret-right"></i>
+													<span>Fourth level</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="icon-caret-right"></i>
+													<span>Another fourth level</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<section id="content">
+			<div class="container">
+				<div class="row" id="content-wrapper">
+					<div class="col-xs-12">
+
+						<!-- page header container -->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="page-header">
+
+									<!-- page title -->
+									<h1 class="pull-left">
+										<i class="icon-th"></i>
+										<span>@RenderSection("pagetitle", required: false)</span>
+									</h1>
+
+									<!-- breadcrumbs -->
+									<div class="pull-right">
+										<ul class="breadcrumb">
+											<li>
+												<a href="@Url.Action("Index", "Home")">
+													<i class="icon-bar-chart"></i>
+												</a>
+											</li>
+											<li class="separator">
+												<i class="icon-angle-right"></i>
+											</li>
+											<li class="active">Grid</li>
+										</ul>
+									</div>
+
+								</div>
+								
+								@RenderBody()
+							</div>
+
+							<!-- content of page -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+
+	@*<header>
 		    <div class="navbar navbar-default navbar-fixed-top">
 			    <div class="container">
 				    <div class="navbar-header">
@@ -53,9 +231,9 @@
 			    </div>
 			    
 		    </section>
-	    </div>
-		
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+	    </div>*@
+
+	@Scripts.Render("~/bundles/jquery")
+	@RenderSection("scripts", required: false)
+</body>
 </html>
